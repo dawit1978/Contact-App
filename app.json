@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "visit-oromia",
-    "slug": "visit-oromia",
+    "name": "ebc-contact-app",
+    "slug": "ebc-contact-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
