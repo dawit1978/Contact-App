@@ -1,45 +1,51 @@
-import { View, Text, Image, ImageBackground,TouchableOpacity} from 'react-native'
+import { View, Text, Image, ImageBackground,TouchableOpacity, StyleSheet, StatusBar,Dimensions} from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
-
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
+// import {widthPercentageToDP} from '../utils/Dimensions';
+
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 function MainScreen({ navigation }) {
+    
    return(
-        <View style={{
-            backgroundColor:"#3F1515",
-            flex:1,
-            alignContent:'center',
-            justifyContent:'center'
-            
-        }}>
+    
+    <SafeAreaView style={styles.container}>
+
+      
+       <StatusBar backgroundColor="#FFF" style="light-content"/>
+      
+         
+       
            <View style={{
-               backgroundColor:"#3F1515",
-               height:"38%",
+             ...styles.myText,
+               backgroundColor:"#092B9C",
+               height:"58%",
                borderBottomLeftRadius:20,
                borderBottomRightRadius:20,
                borderTopLeftRadius:20,
                borderTopRightRadius:20,
-               paddingHorizontal:20,
                alignItems:'center',
+
            }}>
+             
                <Image
                       
-                    source={require('../assets/img/ebclogo.png')}
+                    source={require('../assets/img/ebc5.jpg')}
                     style={{
-                        height:80,
-                        width:200,
-                        marginTop:50,
+                     
+                      //  ...styles.textLogo,
                         borderBottomLeftRadius:20,
                         borderBottomRightRadius:20,
                         borderTopLeftRadius:20,
                         borderTopRightRadius:20,
-                        transform:[{rotate:'-15deg'}]
+                        // transform:[{rotate:'-15deg'}]
                     }}
                />
                <View style={{
                    flexDirection:"row",
                    alignItems:"center",
                    marginTop:35,
-                   marginLeft:85,
                    width:"100%",
                    justifyContent:'center',
                    alignItems:'center',
@@ -47,27 +53,33 @@ function MainScreen({ navigation }) {
                }}>
                    <View style={{width:"100%"}}>
                         <Text style={{
-                            fontSize:35,
-                            // color:"#FFF",
-                            fontWeight:"bold",
+                               flexDirection:"column",
+                                paddingHorizontal:20,
+                                width:"100%",
+                                // left:0,
+                                // right:0,
+                              
+
+                              fontSize:35,
+                              fontWeight:"bold",
+                             
                            
                         }}>
-                        <Text style={{color:"green",padding:1}}>EBC</Text>{" "}
-                        <Text  style={{color:"yellow",padding:1}}>Contact</Text>{" "}
-                        <Text  style={{color:"red",padding:1}}>App</Text>
+                          <Text style={{...styles.myText, color:"gainsboro"}}>EBC Contact App</Text>{"       "}
+                         
                         </Text>
                    </View>
                   
                </View>
            </View>
-
+      
            <LinearGradient
             colors={["rgba(0,164,109,0.4)", "transparent"]}
             style={{
-                flexDirection:"column",
+                // flexDirection:"column",
                 paddingHorizontal:20,
-                width:"100%",
-               
+                // width:"100%",
+               backgroundColor:"blue",
 
                 left:0,
                 right:0,
@@ -78,21 +90,41 @@ function MainScreen({ navigation }) {
                    style={{
                     padding: 20,
                     flexDirection: 'row',
-                    justifyContent: 'space-between',
+                    // justifyContent: 'space-between',
                    }}
-                   onPress={() => navigation.navigate('ContactsList')}
+                  //  onPress={() => navigation.navigate('ContactsList')}
                     >
-                    <Text style={{fontWeight:"bold",fontSize:22,color:"#fff"}}>Go to Contacts List</Text>
-                    <MaterialIcons name='arrow-forward-ios' size={27} color="#FFF" />
+                    <Text style={{fontWeight:"bold",fontSize:22,color:"gainsboro"}}>click refresh on the next page to load data</Text>
                 </TouchableOpacity>
               
             </LinearGradient>
 
+    
+     </SafeAreaView>
 
-              
-
-     </View>
     )
 }
+  const {height} = Dimensions.get("screen");
+  const height_logo = height * 0.28;
+const styles = StyleSheet.create({
+
+  container: { 
+      flex:1,
+      backgroundColor:"#092B9C",
+      alignContent:'center',
+      justifyContent:'center',
+  },
+  textWrapper: {
+    height: hp('70%'), // 70% of height device screen
+    width: wp('80%')   // 80% of width device screen
+  },
+  myText: {
+    fontSize: hp('5%') // End result looks like the provided UI mockup
+  },
+  textLogo: {
+      width: height_logo,
+      height: height_logo
+  }
+});
 
 export default MainScreen
