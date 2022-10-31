@@ -42,7 +42,7 @@ const storeData = async (value) => {
 const getData = async () => {
   try {
     const jsonValue = await AsyncStorage.getItem('@app_contacts')
-    console.log('get data')
+    // console.log('get data')
     return jsonValue != null ? JSON.parse(jsonValue) : null;
   } catch(e) {
     // error reading value
@@ -81,7 +81,7 @@ const GetItem = ({item}) => {
   
     // Function for click on an item
     // alert('Name : ' + item.firstName +  ' Phone Number : ' + item.phone);
-    console.log('modal being called');
+    // console.log('modal being called');
   return (
     <View style={{...styles.centeredView, 
             width:'100%',
@@ -188,14 +188,16 @@ const GetItem = ({item}) => {
 
        
           <Text style={styles.itemNameStyle} 
-             onPress={() => {setSelectedItem(item);setModalVisible(true); console.log(item);}}>
+             onPress={() => {setSelectedItem(item);setModalVisible(true); ;}}>
+              {/* console.log(item); */}
               Name: { item.firstName } { item.lastName }
           </Text>
             
      
 
        <Text style={styles.itemPhoneStyle} 
-           onPress={() => {setSelectedItem(item);setModalVisible(true); console.log(item);}}>
+           onPress={() => {setSelectedItem(item);setModalVisible(true);;}}>
+            {/*  console.log(item) */}
        <MaterialIcons name='local-phone' size={30}color="#000" />:  { item.phone } 
        </Text>
            
@@ -286,7 +288,7 @@ const GetItem = ({item}) => {
                     >
                       <TouchableOpacity 
                        onPress={()=>{
-                                    console.log('getting pressed!!!')
+                                    // console.log('getting pressed!!!')
                                   fetching();
                                   }}
                             style={{
