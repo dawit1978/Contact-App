@@ -54,18 +54,20 @@ function MainScreen({ navigation }) {
                    <View style={{width:"100%"}}>
                         <Text style={{
                                flexDirection:"column",
-                                paddingHorizontal:20,
+                                paddingHorizontal:40,
                                 width:"100%",
                                 // left:0,
                                 // right:0,
                               
 
-                              fontSize:35,
+                              fontSize:15,
                               fontWeight:"bold",
                              
                            
                         }}>
-                          <Text style={{...styles.myText, color:"gainsboro"}}>EBC Contact App</Text>{"       "}
+                          <Text style={{...styles.myText, color:"gainsboro"}}>
+                              &#169; Think it solutions
+                            </Text>{"       "}
                          
                         </Text>
                    </View>
@@ -73,31 +75,7 @@ function MainScreen({ navigation }) {
                </View>
            </View>
       
-           <LinearGradient
-            colors={["rgba(0,164,109,0.4)", "transparent"]}
-            style={{
-                // flexDirection:"column",
-                paddingHorizontal:20,
-                // width:"100%",
-               backgroundColor:"blue",
-
-                left:0,
-                right:0,
-                height:90,
-            }}
-           >
-             <TouchableOpacity 
-                   style={{
-                    padding: 20,
-                    flexDirection: 'row',
-                    // justifyContent: 'space-between',
-                   }}
-                  //  onPress={() => navigation.navigate('ContactsList')}
-                    >
-                    <Text style={{fontWeight:"bold",fontSize:22,color:"gainsboro"}}>click refresh on the next page to load data</Text>
-                </TouchableOpacity>
-              
-            </LinearGradient>
+           
 
     
      </SafeAreaView>

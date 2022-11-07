@@ -227,7 +227,7 @@ const GetItem = ({item}) => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{
                backgroundColor:"#092B9C",
-               height:"35%",
+               height:"25%",
                borderBottomLeftRadius:20,
                borderBottomRightRadius:20,
                paddingHorizontal:20,
@@ -240,7 +240,8 @@ const GetItem = ({item}) => {
              style={{
                    flexDirection:"row",
                    alignItems:"center",
-                   marginTop:45,
+                   marginTop:5,
+                   marginBottom:5,
                 //    marginLeft:125,
                    width:"100%",
                    alignItems:'center',
@@ -263,7 +264,7 @@ const GetItem = ({item}) => {
                         <MaterialIcons name='arrow-back-ios' size={27}color="#FFF"
                            onPress={() => navigation.goBack("MainScreen")}
                         />{"    "} 
-                        <Text  style={{color:"yellow",marginLeft:25}}>Contacts List</Text>{" "}
+                        <Text  style={{color:"yellow",marginLeft:25}}>Contacts</Text>{" "}
                         
                          
                         </Text>
@@ -274,7 +275,7 @@ const GetItem = ({item}) => {
                </View>
                 <View>
                    <LinearGradient
-                      colors={["rgba(0,164,109,0.4)", "transparent"]}
+                      colors={["rgba(0,14,19,0.4)", "transparent"]}
                       style={{
                           flexDirection:"column",
                           paddingHorizontal:20,
@@ -283,7 +284,7 @@ const GetItem = ({item}) => {
 
                           left:0,
                           right:0,
-                          height:90,
+                          height:70,
                       }}
                     >
                       <TouchableOpacity 
@@ -298,7 +299,7 @@ const GetItem = ({item}) => {
                             }}
                             //  onPress={() => navigation.navigate('ContactsList')}
                               >
-                              <Text style={{fontWeight:"bold",fontSize:22,color:"#fff"}}> refresh </Text>
+                              <Text style={{fontWeight:"bold",fontSize:20,color:"#fff"}}> refresh </Text>
                               <Pressable
                                  >
                                   <MaterialIcons name='refresh' size={30}color="#FFF" />
@@ -312,11 +313,11 @@ const GetItem = ({item}) => {
                </View>
               <View style={{
                    backgroundColor:"#304FAF",
-                   height:70,
+                   height:50,
                    paddingVertical:1,
                    paddingHorizontal:20,
                    borderRadius:25,
-                   marginTop:25,
+                   marginTop:5,
                    flexDirection:"row",
                    alignItems:"center",
                    justifyContent:'space-around',
