@@ -363,6 +363,11 @@ const GetItem = ({item}) => {
              {/* )
          } */}
         </View>
+        {/* <View style={styles.offset}>
+          <Text >
+            test
+          </Text>
+        </View> */}
     </SafeAreaView>
   );
 };
@@ -447,6 +452,13 @@ const styles = StyleSheet.create({
     fontSize:20,
     fontWeight:'bold',
 
+  },
+  offset:{
+    height:"300px",
+    marginVertical:200,
+    width:'100%',
+    borderStyle:"solid",
+    borderWidth:3
   }
 });
 

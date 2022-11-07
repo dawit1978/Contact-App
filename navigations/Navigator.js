@@ -22,7 +22,7 @@ const BottomTabNavigator = () => {
          
            screenOptions={{
             tabBarStyle: { position: 'absolute' },
-             tabBarActiveTintColor: '#092B9C',
+            //  tabBarActiveTintColor: '#092B9C',
         
                 style:{
                     height:65,

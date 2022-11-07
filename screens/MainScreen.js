@@ -54,19 +54,19 @@ function MainScreen({ navigation }) {
                    <View style={{width:"100%"}}>
                         <Text style={{
                                flexDirection:"column",
-                                paddingHorizontal:40,
+                                paddingHorizontal:20,
                                 width:"100%",
                                 // left:0,
                                 // right:0,
                               
 
-                              fontSize:15,
+                              fontSize:5,
                               fontWeight:"bold",
                              
                            
                         }}>
                           <Text style={{...styles.myText, color:"gainsboro"}}>
-                              &#169; Think it solutions
+                                     &#169; Think it solutions
                             </Text>{"       "}
                          
                         </Text>
