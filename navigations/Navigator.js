@@ -27,15 +27,15 @@ const BottomTabNavigator = () => {
                 style:{
                     height:65,
                     justifyContent:"center",
-                    paddingTop:35,
+                    // paddingTop:45,
                     elevation:2,
-                        paddingVertical:30,
+                        // paddingVertical:30,
                     backgroundColor:  'transparent',
                         borderTopWidth: 0,
                         position: 'absolute',
                         left: 50,
                         right: 50,
-                        bottom: 20,
+                        // bottom: 20,
                         height: 100,
                         borderTopRightRadius: 20,
                         borderTopLeftRadius: 20,
@@ -44,7 +44,7 @@ const BottomTabNavigator = () => {
             borderTopRightRadius: 20,
             borderTopLeftRadius: 20,
             height: 55,
-            paddingBottom: 5
+            // paddingBottom: 5
                   },
                 
             }}
@@ -112,8 +112,6 @@ const HomeStackNavigator = () => {
         <Stack.Screen name="Home" component={BottomTabNavigator} options={{headerShown:false}} />
         <Stack.Screen name=" MainScreen" component={ MainScreen} options={{headerShown:false}} />
         <Stack.Screen name="ContactsList" component={ContactListScreen} options={{headerShown:false}} />
-        {/* <Stack.Screen name="ContactsList" component={Search} options={{headerShown:false}} /> */}
-        {/* <Stack.Screen name="ContactsListDetails" component={ContactListDetailsScreen} options={{headerShown:false}} /> */}
       </Stack.Navigator>
     
     )

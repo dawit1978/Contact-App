@@ -69,8 +69,12 @@ const AboutUsScreen = ({ navigation }) => {
              style={styles.scrollView}>
                 <Text style={styles.text}>
                    This is a mobile app for EBC used to access contact information about individuals and organization ...
-                     <Text style={{color:"blue"}}>by THINK IT SOLUTIONS +251966794615 +251923318738</Text> 
                 </Text>
+                <Text style={{color:"blue" }}>  &#169; by THINK IT SOLUTIONS</Text> 
+                <Text style={{color:"red"}}>+251966794615 </Text> 
+                <Text style={{color:"red"}}>+251923318738</Text> 
+
+                
             </ScrollView>
       </View>
 
@@ -92,7 +96,7 @@ const styles = StyleSheet.create({
     
   },
   text: {
-    fontSize: 22,
+    fontSize: 20,
   },
 });
 

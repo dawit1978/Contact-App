@@ -12,6 +12,7 @@ import {
   StyleSheet,
   View,
   Image,
+  ScrollView,
   // ActivityIndicator,
   FlatList,
   TextInput,
@@ -24,7 +25,7 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient'
 import { MaterialIcons } from '@expo/vector-icons';
-
+// import UserAvatar from 'react-native-user-avatar';
 
 const baseURL = 'https://api.jsonstorage.net/v1/json/b8b28667-4983-42a1-b60b-4aad38f39f99/56f707f6-4355-40d7-a720-1ff179e0486e'
 // import axios from 'axios';
@@ -43,6 +44,7 @@ const getData = async () => {
   try {
     const jsonValue = await AsyncStorage.getItem('@app_contacts')
     // console.log('get data')
+
     return jsonValue != null ? JSON.parse(jsonValue) : null;
   } catch(e) {
     // error reading value
@@ -82,6 +84,7 @@ const GetItem = ({item}) => {
     // Function for click on an item
     // alert('Name : ' + item.firstName +  ' Phone Number : ' + item.phone);
     // console.log('modal being called');
+  
   return (
     <View style={{...styles.centeredView, 
             width:'100%',
@@ -100,13 +103,27 @@ const GetItem = ({item}) => {
       >
         <View style={styles.centeredView}>
           <View style={{...styles.modalView,width: 300,  backgroundColor: '#E9EAF0', marginTop:30}}>
-            <View style={{
-            width: 80,
-            height: 80,
-            marginTop:30,
-            borderRadius: 180 / 2,
-            backgroundColor: '#C4C3D0'
-      }}></View>
+
+            <View  
+          //   style={{
+          //     width: 80,
+          //     height: 80,
+          //     marginTop:30,
+          //     borderRadius: 180 / 2,
+          //     backgroundColor: 'red',
+          //  }}
+           >
+                {/* <UserAvatar
+                      size={50}
+                      name={ item.firstName+" "+item.lastName}
+                      maxInitials={2} 
+                      bgColor="#000"
+                    /> */}
+
+           </View>
+            
+             
+             <Text></Text>
             <Text style={styles.modalText}>{item.firstName} {item.lastName}</Text>
             <Text style={styles.modalText}>{item.phone}</Text>
             <Button title='call' onPress={() => {
@@ -180,7 +197,11 @@ const GetItem = ({item}) => {
         ...styles.modalView,
         fontSize:16,
         fontWeight:'bold',
-        backgroundColor:'#DFDEDC'
+        marginVertical:0,
+        paddingVertical: 0,
+        padding: 0,
+        
+        backgroundColor:'#8F8F8F '
         
       }}
        
@@ -197,7 +218,8 @@ const GetItem = ({item}) => {
 
        <Text style={styles.itemPhoneStyle} 
            onPress={() => {setSelectedItem(item);setModalVisible(true);;}}>
-            {/*  console.log(item) */}
+             {/* console.log(item) */}
+
        <MaterialIcons name='local-phone' size={30}color="#000" />:  { item.phone } 
        </Text>
            
@@ -227,10 +249,9 @@ const GetItem = ({item}) => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{
                backgroundColor:"#092B9C",
-               height:"25%",
-               borderBottomLeftRadius:20,
-               borderBottomRightRadius:20,
-               paddingHorizontal:20,
+               height:"15%",
+             
+               paddingHorizontal:5,
                alignItems:'center',
             
 
@@ -240,14 +261,14 @@ const GetItem = ({item}) => {
              style={{
                    flexDirection:"row",
                    alignItems:"center",
-                   marginTop:5,
-                   marginBottom:5,
+                   marginTop:2,
+                  //  marginBottom:2,
                 //    marginLeft:125,
                    width:"100%",
                    alignItems:'center',
                    
                }}>
-                   <View style={{
+                   {/* <View style={{
                         width:"100%",
                         display:'flex',
 
@@ -270,7 +291,7 @@ const GetItem = ({item}) => {
                         </Text>
 
                        
-                   </View>
+                   </View> */}
                   
                </View>
                 <View>
@@ -313,10 +334,10 @@ const GetItem = ({item}) => {
                </View>
               <View style={{
                    backgroundColor:"#304FAF",
-                   height:50,
-                   paddingVertical:1,
+                   height:40,
+                  //  paddingVertical:1,
                    paddingHorizontal:20,
-                   borderRadius:25,
+                  //  borderRadius:25,
                    marginTop:5,
                    flexDirection:"row",
                    alignItems:"center",
@@ -343,31 +364,30 @@ const GetItem = ({item}) => {
                
         
        
-        <View>
+        <View style={{height: '100%'}}>
           <GetItem item={selectedItem}/>
            {/* {
-            isLoading ? <ActivityIndicator /> : ( */}
+          isLoading ? <ActivityIndicator /> : ( */}
+
               <FlatList
-                contentContainerStyle={{flexGrow: 1,
+
+                contentContainerStyle={{
+                  flexGrow: 1,
                  justifyContent: 'center',
                  fontSize:16,
                  fontWeight:"bold",
+                 paddingBottom: 20 
                 }}
-                data={filteredDataSource}
-                // keyExtractor={(item, index) => index.toString()}
-                keyExtractor={(item) => item.id}
-                ItemSeparatorComponent={ItemSeparatorView}
-                renderItem={ItemView}
-               
+                          data={filteredDataSource}
+                          renderItem={ItemView}
+                          keyExtractor={item => item.id}
+                          ItemSeparatorComponent={ItemSeparatorView}
+                    
             />
              {/* )
          } */}
         </View>
-        {/* <View style={styles.offset}>
-          <Text >
-            test
-          </Text>
-        </View> */}
+       
     </SafeAreaView>
   );
 };
@@ -381,7 +401,7 @@ const styles = StyleSheet.create({
     fontSize:22,
     fontWeight:"bold",
      flex: 1,
-    height: 58,
+    // height: 68,
     flexDirection: 'row',
     alignItems: 'flex-start',
     color:'#021068',
@@ -389,8 +409,9 @@ const styles = StyleSheet.create({
   },
   itemPhoneStyle: {
    display:'flex',
+   flex: 1,
    flexDirection:'row',
-   marginBottom:5,
+  //  marginBottom:5,
     fontFamily:"sans-serif",
     fontSize:18,
     fontWeight:"bold",
@@ -401,7 +422,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderWidth: 1,
     paddingLeft: 20,
-    margin: 5,
+    // margin: 5,
     borderColor: '#009688',
     backgroundColor: '#FFFFFF',
   },
@@ -412,11 +433,11 @@ const styles = StyleSheet.create({
     marginTop: 22
   },
   modalView: {
-    margin: 10,
-    marginTop:40,
+    margin: 5,
+    marginTop:20,
     backgroundColor: "white",
     borderRadius: 20,
-    padding: 10,
+    padding: 5,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -425,7 +446,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5
+    elevation: 2
   },
   button: {
     borderRadius: 20,
@@ -455,7 +476,7 @@ const styles = StyleSheet.create({
   },
   offset:{
     height:"300px",
-    marginVertical:200,
+    // marginVertical:200,
     width:'100%',
     borderStyle:"solid",
     borderWidth:3
